@@ -1,0 +1,180 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#>.
+@prefix doap: <http://usefulinc.com/ns/doap#>.
+@prefix epp: <http://lv2plug.in/ns/ext/port-props#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix mod: <http://moddevices.com/ns/modgui#>.
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+<http://moddevices.com/plugins/mod-devel/veja-1960-cab>
+a lv2:Plugin, lv2:SimulatorPlugin;
+
+doap:name "British 1960A";
+
+doap:developer [
+    foaf:name "Jarno Verheesen";
+    foaf:homepage <>;
+    foaf:mbox <mailto:j.verheesen@hotmail.nl>;
+    ];
+
+doap:maintainer [
+    foaf:name "VeJa Plugins";
+    foaf:homepage <>;
+    foaf:mbox <mailto:j.verheesen@hotmail.nl>;
+    ];
+
+    lv2:minorVersion 1;
+    lv2:microVersion 0;
+
+rdfs:comment """
+... <insert further description>
+
+Features:
+Modeled by VeJa Plugins
+""";
+
+lv2:port
+[
+    a lv2:AudioPort, lv2:InputPort;
+    lv2:index 0;
+    lv2:symbol "In";
+    lv2:name "Input";
+],
+[
+    a lv2:AudioPort, lv2:OutputPort;
+    lv2:index 1;
+    lv2:symbol "Out";
+    lv2:name "Output";
+],
+[
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 2;
+    lv2:symbol "Attenuation";
+    lv2:name "Attenuation";
+    lv2:default 0;
+    lv2:minimum -90;
+    lv2:maximum 0;
+],
+[
+    a lv2:InputPort, lv2:ControlPort;
+    lv2:index 3;
+    lv2:symbol "Microphone";
+    lv2:name "Microphone";
+    lv2:default 0;
+    lv2:minimum 0;
+    lv2:maximum 5;
+    lv2:portProperty lv2:integer;
+    lv2:portProperty lv2:enumeration ;
+    lv2:scalePoint
+    [
+        rdfs:label "AKG C414";
+        rdf:value 0
+    ],
+    [
+        rdfs:label "Electrovoice RE20";
+        rdf:value 1
+    ],
+    [
+        rdfs:label "Neumann KM84";
+        rdf:value 2
+    ],
+    [
+        rdfs:label "Neumann U87";
+        rdf:value 3
+    ],
+    [
+        rdfs:label "Royer R121";
+        rdf:value 4
+    ],
+    [
+        rdfs:label "Shure SM57";
+        rdf:value 5
+    ]
+]
+,
+[
+    a lv2:InputPort, lv2:ControlPort;
+    lv2:index 4;
+    lv2:symbol "MicPos";
+    lv2:name "Mic Position";
+    lv2:default 0;
+    lv2:minimum 0;
+    lv2:maximum 5;
+    lv2:portProperty lv2:integer;
+    lv2:portProperty lv2:enumeration ;
+    lv2:scalePoint
+    [
+        rdfs:label "cap";
+        rdf:value 0
+    ],
+    [
+        rdfs:label "cap off axis";
+        rdf:value 1
+    ],
+    [
+        rdfs:label "cap-edge";
+        rdf:value 2
+    ],
+    [
+        rdfs:label "cap-edge off axis";
+        rdf:value 3
+    ],
+    [
+        rdfs:label "cone";
+        rdf:value 4
+    ],
+    [
+        rdfs:label "cone-edge";
+        rdf:value 5
+    ]
+]
+,
+[
+    a lv2:InputPort, lv2:ControlPort;
+    lv2:index 5;
+    lv2:symbol "Distance";
+    lv2:name "Distance";
+    lv2:default 1;
+    lv2:minimum 0;
+    lv2:maximum 8;
+    lv2:portProperty lv2:integer;
+    lv2:portProperty lv2:enumeration ;
+    lv2:scalePoint
+    [
+        rdfs:label "-0.5 Inch";
+        rdf:value 0
+    ],
+    [
+        rdfs:label "0 Inch";
+        rdf:value 1
+    ],
+    [
+        rdfs:label "1 Inch";
+        rdf:value 2
+    ],
+    [
+        rdfs:label "2 Inch";
+        rdf:value 3
+    ],
+    [
+        rdfs:label "3 Inch";
+        rdf:value 4
+    ],
+    [
+        rdfs:label "4 Inch";
+        rdf:value 5
+    ],
+    [
+        rdfs:label "5 Inch";
+        rdf:value 6
+    ],
+    [
+        rdfs:label "6 Inch";
+        rdf:value 7
+    ],
+    [
+        rdfs:label "12 Inch";
+        rdf:value 8
+    ]
+] 
+.
