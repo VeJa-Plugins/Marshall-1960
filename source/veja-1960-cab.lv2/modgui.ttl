@@ -1,0 +1,25 @@
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+
+<http://VeJaPlugins.com/plugins/Release/veja-1960-cab>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-veja-marsh.html> ;
+        modgui:stylesheet <modgui/stylesheet-veja-marsh.css> ;
+        modgui:screenshot <modgui/veja-marsh_ss.png> ;
+        modgui:thumbnail <modgui/veja-marsh_tn.png> ;
+        modgui:port [
+            lv2:index 0;
+            lv2:symbol "Attenuation";
+            lv2:name "Attenuation";
+        ], [
+            lv2:index 1;
+            lv2:symbol "Microphone";
+            lv2:name "Microphone";
+        ], [
+            lv2:index 2;
+            lv2:symbol "MicPos";
+            lv2:name "MicPos";
+        ] ;
+
+    ] .

@@ -6,7 +6,7 @@
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 
-<http://moddevices.com/plugins/mod-devel/veja-1960-cab>
+<http://VeJaPlugins.com/plugins/Release/veja-1960-cab> 
 a lv2:Plugin, lv2:SimulatorPlugin;
 
 doap:name "British 1960A";
@@ -27,7 +27,9 @@ doap:maintainer [
     lv2:microVersion 0;
 
 rdfs:comment """
-... <insert further description>
+A cabinet simulator that simulates a 1960 Marschall. 
+
+The plugin features multiple mic posistions and types
 
 Features:
 Modeled by VeJa Plugins

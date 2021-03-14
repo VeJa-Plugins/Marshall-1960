@@ -1,0 +1,105 @@
+
+.forward-audio-modern-rock{{{cns}}} {
+    background-image: url(/resources/veja-marsh_bg.png{{{ns}}});
+    position: absolute;
+    width: 479px;
+    height: 530px;
+}
+
+
+.forward-audio-modern-rock{{{cns}}} .mod-pedal-input,
+.forward-audio-modern-rock{{{cns}}} .mod-pedal-output
+{
+    top: 100px;
+}
+
+.forward-audio-modern-rock{{{cns}}} .mod-audio-input {
+    left: 2px;
+}
+
+.forward-audio-modern-rock{{{cns}}} .mod-audio-output {
+    left: -1px;
+}
+
+.forward-audio-modern-rock{{{cns}}} .mod-switch {
+    background-image: url(/resources/veja-marsh_sprites/switch.png{{{ns}}}22);
+    bottom: 8px;
+    left: 22px;
+    height: 21px;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    width: 21px;
+    cursor: pointer;
+    z-index: 21;
+}
+
+.forward-audio-modern-rock{{{cns}}} .mod-switch.off {
+    background-position: right;
+}
+.forward-audio-modern-rock{{{cns}}} .mod-switch.on {
+    background-position: left;
+}
+
+/* = KNOBS
+================================================ */
+.forward-audio-modern-rock{{{cns}}} .mod-control-group {
+    margin: 470px 50px 20px;
+    position: relative;
+    text-align: center;
+    z-index: 30;
+}
+
+/* ONE KNOB */
+.forward-audio-modern-rock{{{cns}}} .mod-control-group .mod-knob .mod-knob-image {
+    background-image: url(/resources/veja-marsh_sprites/knob_70steps.png{{{ns}}});
+    background-repeat: no-repeat;
+    background-size: auto 34px;
+    height: 34px;
+    width: 70px;
+    position: absolute;
+    top: 26px;
+    left: 366px;
+}
+
+.forward-audio-modern-rock{{{cns}}} .mod-control-group .mod-knob {
+    padding-top: 57px;
+}
+
+
+/* ENUMERATED LIST */
+.forward-audio-modern-rock{{{cns}}} .mod-enumerated {
+    position: absolute;
+    bottom: -1px;
+    color: #b9b4b4;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 21;
+    line-height: 20px;
+}
+
+.forward-audio-modern-rock{{{cns}}} .mod-enumerated.mod-enumerated-1 {
+    left:65px;
+    width:129px;
+}
+
+.forward-audio-modern-rock{{{cns}}} .mod-enumerated.mod-enumerated-2 {
+    left:243px;
+    width:90px;
+}
+
+
+/* THE LIST OF OPTIONS */
+.forward-audio-modern-rock{{{cns}}} .mod-enumerated .mod-enumerated-list {
+    background-color: rgba(51, 51, 51, .9);
+    left:-23px;
+    display: none;
+    position: absolute;
+    bottom: 23px;
+    width: 160px;
+    max-height: 150px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-size: 12px;
+}

@@ -15,7 +15,7 @@
 #define PI 3.14159265359
 
 //plugin URI
-#define PLUGIN_URI "http://moddevices.com/plugins/mod-devel/veja-1960-cab"
+#define PLUGIN_URI "http://VeJaPlugins.com/plugins/Release/veja-1960-cab"
 
 //macro for Volume in DB to a coefficient
 #define DB_CO(g) ((g) > -90.0f ? powf(10.0f, (g) * 0.05f) : 0.0f)
@@ -775,12 +775,28 @@ const LV2_Feature* const* features)
     cabsim->oB = (float *) calloc((SIZE),sizeof(float));
     cabsim->oC = (float *) calloc((SIZE),sizeof(float));
 
-    cabsim->fft = fftwf_plan_dft_r2c_1d(SIZE, cabsim->inbuf, cabsim->outComplex, FFTW_ESTIMATE); 
-    cabsim->IRfft = fftwf_plan_dft_r2c_1d(SIZE, cabsim->IR, cabsim->IRout, FFTW_ESTIMATE);
-    cabsim->ifft = fftwf_plan_dft_c2r_1d(SIZE, cabsim->convolved, cabsim->outbuf, FFTW_ESTIMATE);
+    const char* wisdomFile = "cabsim.wisdom";
+    //open file A
+    const size_t path_len    = strlen(bundle_path);
+    const size_t file_len    = strlen(wisdomFile);
+    const size_t len         = path_len + file_len;
+    char*        wisdom_path = (char*)malloc(len + 1);
+    snprintf(wisdom_path, len + 1, "%s%s", bundle_path, wisdomFile);
+
+    if (fftwf_import_wisdom_from_filename(wisdom_path) != 0)
+    {
+        cabsim->fft = fftwf_plan_dft_r2c_1d(SIZE, cabsim->inbuf, cabsim->outComplex, FFTW_WISDOM_ONLY|FFTW_ESTIMATE);
+        cabsim->IRfft = fftwf_plan_dft_r2c_1d(SIZE, cabsim->IR, cabsim->IRout, FFTW_WISDOM_ONLY|FFTW_ESTIMATE);
+        cabsim->ifft = fftwf_plan_dft_c2r_1d(SIZE, cabsim->convolved, cabsim->outbuf, FFTW_WISDOM_ONLY|FFTW_ESTIMATE);
+    } else {
+        cabsim->fft = fftwf_plan_dft_r2c_1d(SIZE, cabsim->inbuf, cabsim->outComplex, FFTW_ESTIMATE);
+        cabsim->IRfft = fftwf_plan_dft_r2c_1d(SIZE, cabsim->IR, cabsim->IRout, FFTW_ESTIMATE);
+        cabsim->ifft = fftwf_plan_dft_c2r_1d(SIZE, cabsim->convolved, cabsim->outbuf, FFTW_ESTIMATE);
+    }
 
     cabsim->xxx = load_xxx(cabsim, samplePath[1][1][4]);
 
+    free(wisdom_path);
 
     return (LV2_Handle)cabsim;
 }
